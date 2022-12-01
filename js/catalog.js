@@ -3,15 +3,15 @@
 'use strict';
 
 // Set up an empty cart for use on this page.
-const cart = new Cart([]);
+state.cart = new Cart([]);
 
 // On screen load, we call this method to put all of the product options
-// (the things in the Product.allProducts array) into the drop down list.
+// (the things in the state.allProducts array) into the drop down list.
 function populateForm() {
 
   //TODO: Add an <option> tag inside the form's select for each product
   const selectElement = document.getElementById('items');
-  for (let i in Product.allProducts) {
+  for (let i in state.allProducts) {
 
   }
 
@@ -26,7 +26,7 @@ function handleSubmit(event) {
 
   // Do all the things ...
   addSelectedItemToCart();
-  cart.saveToLocalStorage();
+  state.cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
 
