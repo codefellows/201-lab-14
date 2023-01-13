@@ -25,6 +25,10 @@ Cart.prototype.removeItem = function(item) {
   // Note: You will have to decide what kind of parameter to pass in here!
 };
 
+Cart.prototype.updateCounter = function() {
+  // TODO: Update the cart count in the header nav with the number of items in the Cart
+}
+
 const CartItem = function(product, quantity) {
   this.product = product;
   this.quantity = quantity;
