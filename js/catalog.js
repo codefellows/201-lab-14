@@ -27,7 +27,7 @@ function handleSubmit(event) {
   // Do all the things ...
   addSelectedItemToCart();
   state.cart.saveToLocalStorage();
-  updateCounter();
+  state.cart.updateCounter();
   updateCartPreview();
 
 }
@@ -38,9 +38,6 @@ function addSelectedItemToCart() {
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
 }
-
-// TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() { }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
