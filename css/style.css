@@ -1,1 +1,120 @@
 /* TODO: Make it awesome */
+
+html{
+    background-color: #4c8bff;
+    
+}
+
+header {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+  }
+
+h1{
+    background-color: #00b27a;
+    font-family: 'Roboto', sans-serif;
+    font:bold;
+    font-size: 40px;
+}
+nav{
+    padding: 10px;
+    font-size: larger;
+    border: 3px solid black;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+  }
+
+title{
+    background-color: #00b27a;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+}
+
+.copy{
+    background-color: #00c9ff ;
+    font-style: italic;
+}
+ 
+.deck col-1{
+    background-color: #8901bd;
+}
+
+fieldset{
+    background-color: #00c9ff;
+}
+
+section {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid black;
+}
+
+
+#catalog {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid black;
+    /* border-radius: 25px; */
+  }
+
+#items{
+    margin-left: 0px;
+    padding-left: 3px;
+    padding-bottom: 8px;
+    vertical-align: top;
+    color: #ffaa00;
+    font-size: .9rem;
+    width: 25px;
+    height: 25px;
+  }
+
+  ol{
+    background-color: #ffaa00;
+    
+  }
+
+legend{
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+
+input {
+    background-color: #00b27a;
+    font-size: 1rem;
+    margin-right: 20px;
+}
+input:hover {
+    background-color: #8901bd;
+}
+label{
+    background-color: #00b27a;
+    font-size: 1rem;
+    margin-right: 20px;
+}
+#item{
+    background-color: #00b27a;
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+  #item:hover {
+    background-color: #8901bd;
+  }
+
+  /* .card{
+    background-color: #00b27a;
+    font-size: 1rem;
+    margin-right: 20px;
+  } */
+
+  footer {
+    display: block;
+    text-align: center;
+    margin: auto;
+  } 
