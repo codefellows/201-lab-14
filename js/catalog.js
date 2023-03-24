@@ -5,14 +5,12 @@
 // Set up an empty cart for use on this page.
 // state.cart = new Cart([]);
 // let items = localStorage.getItem('cart');
-if (localStorage.cart) {
-  state.cart = new Cart(JSON.parse(localStorage.cart));
-}else{
-  state.cart = new Cart([]); 
+state.cart = localStorage.cart ? new new Cart(JSON.parse(localStorage.cart)) : new Cart([]);
 
-  }
-
-JSON.parse(lcalStoorage.cart);
+if (state.cart) {
+  state.cart.updateCounter();
+  updateCartPreview();
+}
 
 // On screen load, we call this method to put all of the product options
 // (the things in the state.allProducts array) into the drop down list.
@@ -36,7 +34,7 @@ function populateForm() {
 function handleSubmit(event) {
 
   // TODO: Prevent the page from reloading
-event.preventDefault();
+  event.preventDefault();
   // Do all the things ...
   addSelectedItemToCart();
   state.cart.saveToLocalStorage();
@@ -50,9 +48,9 @@ function addSelectedItemToCart() {
   let item = document.getElementById('items').value;
   console.log(item);
   let quantity = document.getElementById('quantity').value;
-  console.log(quantity); 
-state.cart.addItem(item, quantity);
-console.log(state.cart);
+  console.log(quantity);
+  state.cart.addItem(item, quantity);
+  console.log(state.cart);
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
@@ -62,7 +60,7 @@ console.log(state.cart);
 function updateCartPreview() {
   let item = state.cart.items.pop();
   let product = item.product;
-  let quantity = item.quantity;  
+  let quantity = item.quantity;
   let cartContents = document.getElementById('cartContents');
 
   let listElem = document.createElement('ul');
@@ -70,7 +68,7 @@ function updateCartPreview() {
   let liElem = document.createElement('li');
   liElem.textContent = `${quantity} ${product}`;
   listElem.appendChild(liElem);
-  
+
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
 }
