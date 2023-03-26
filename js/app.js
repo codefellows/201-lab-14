@@ -1,37 +1,42 @@
 'use strict';
 
-// State object keeps track of the application state (all available products and current state of the user's cart)
 const state = {
   allProducts: [],
   cart: null,
 };
 
+let quantityInCart = 0;
+
 // Cart constructor.
 const Cart = function(items) {
-  // this.items is an array of CartItem instances.
   this.items = items;
 };
 
 Cart.prototype.addItem = function(product, quantity) {
+
   let newItem = new CartItem(product, quantity);
   this.items.push(newItem);
-  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
-  localStorage.setItem('cart', JSON.stringify(this.items))
+
+  localStorage.setItem('cart', JSON.stringify(this.items));
 };
 
 Cart.prototype.removeItem = function(item) {
-  // TODO: Fill in this instance method to remove one item from the cart.
-  // Note: You will have to decide what kind of parameter to pass in here!
+
+  this.items.splice(item, 1);
+
+  state.cart.saveToLocalStorage();
 };
 
 Cart.prototype.updateCounter = function() {
-  // TODO: Update the cart count in the header nav with the number of items in the Cart
-  let count = document.getElementById('itemCount');
-  count.textContent = this.items.length;
+
+  for(let i = 0; i < this.items.length; i++){
+    quantityInCart += +this.items[i].quantity;
+  }
+
+  document.getElementById('itemCount').textContent = quantityInCart
 }
 
 const CartItem = function(product, quantity) {
@@ -39,7 +44,6 @@ const CartItem = function(product, quantity) {
   this.quantity = quantity;
 };
 
-// Product contructor.
 const Product = function(filePath, name) {
   this.filePath = filePath;
   this.name = name;
@@ -67,6 +71,4 @@ function generateCatalog() {
   let wineGlass = new Product('assets/wine-glass.jpg', 'Wine Glass');
   state.allProducts.push(bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass);
 }
-
-// Initialize the app by creating the big list of products with images and names
 generateCatalog();
